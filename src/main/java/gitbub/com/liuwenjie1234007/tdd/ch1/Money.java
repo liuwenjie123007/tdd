@@ -4,7 +4,7 @@ package gitbub.com.liuwenjie1234007.tdd.ch1;
  * @author liuwenjie
  * @since 1.0.0
  **/
-public abstract class Money {
+public class Money {
     protected int amount;
     protected String currency;
 
@@ -16,7 +16,7 @@ public abstract class Money {
     @Override
     public boolean equals(Object object) {
         if (object instanceof Money money) {
-            return amount == money.amount && getClass().equals(money.getClass());
+            return amount == money.amount && currency().equals(money.currency());
         }
         return false;
     }
@@ -29,9 +29,17 @@ public abstract class Money {
         return new Franc(amount, "CHF");
     }
 
-    abstract Money times(int multiplier);
+    Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
+
 
     String currency() {
         return currency;
+    }
+
+    @Override
+    public String toString() {
+        return amount + " " + currency;
     }
 }
