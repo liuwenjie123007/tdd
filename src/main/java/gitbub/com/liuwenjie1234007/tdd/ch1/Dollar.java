@@ -4,8 +4,7 @@ package gitbub.com.liuwenjie1234007.tdd.ch1;
  * @author liuwenjie
  * @since 1.0.0
  **/
-public class Dollar {
-    private final int amount;
+public class Dollar extends Money{
 
     Dollar(int amount) {
         this.amount = amount;
@@ -15,8 +14,5 @@ public class Dollar {
         return new Dollar(amount * multiplier);
     }
 
-    public boolean equals(Object object) {
-        Dollar dollar = (Dollar) object;
-        return amount == dollar.amount;
-    }
+
 }
