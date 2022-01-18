@@ -4,7 +4,7 @@ package gitbub.com.liuwenjie1234007.tdd.ch1;
  * @author liuwenjie
  * @since 1.0.0
  **/
-public class Money {
+public abstract class Money {
     protected int amount;
 
     @Override
@@ -15,4 +15,13 @@ public class Money {
         return false;
     }
 
+    static Money dollar(int amount) {
+        return new Dollar(amount);
+    }
+
+    static Money franc(int amount) {
+        return new Franc(amount);
+    }
+
+    abstract Money times(int multiplier);
 }
