@@ -10,8 +10,9 @@ public class Money {
     @Override
     public boolean equals(Object object) {
         if (object instanceof Money money) {
-            return amount == money.amount;
+            return amount == money.amount && getClass().equals(money.getClass());
         }
         return false;
     }
+
 }
