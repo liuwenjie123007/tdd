@@ -4,7 +4,7 @@ package gitbub.com.liuwenjie1234007.tdd.ch1;
  * @author liuwenjie
  * @since 1.0.0
  **/
-public class Money {
+public class Money implements Expression{
     protected int amount;
     protected String currency;
 
@@ -33,7 +33,6 @@ public class Money {
         return new Money(amount * multiplier, currency);
     }
 
-
     String currency() {
         return currency;
     }
@@ -41,5 +40,9 @@ public class Money {
     @Override
     public String toString() {
         return amount + " " + currency;
+    }
+
+    Expression plus(Money added) {
+        return new Money(amount + added.amount, currency);
     }
 }
