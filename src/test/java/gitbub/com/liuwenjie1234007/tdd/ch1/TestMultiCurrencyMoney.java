@@ -66,7 +66,7 @@ public class TestMultiCurrencyMoney {
     @Test
     public void testReduceMoneyDifferentCurrency() {
         Bank bank = new Bank();
-        bank.addRage("CHF", "USD", 2);
+        bank.addRate("CHF", "USD", 2);
         Money result = bank.reduce(Money.franc(2), "USD");
         assertEquals(Money.dollar(1), result);
     }
@@ -74,6 +74,16 @@ public class TestMultiCurrencyMoney {
     @Test
     public void testIdentityRage() {
         assertEquals(1, new Bank().rate("USD", "USD"));
+    }
+
+    @Test
+    public void testMixedAddition() {
+        Expression fiveBucks = Money.dollar(5);
+        Expression tenFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
+        assertEquals(Money.dollar(10), result);
     }
 
 }

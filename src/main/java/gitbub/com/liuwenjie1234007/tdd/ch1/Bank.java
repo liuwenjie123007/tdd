@@ -10,7 +10,7 @@ public class Bank {
 
     private Hashtable<Pair, Integer> rates = new Hashtable<>();
 
-    void addRage(String from, String to, int rate) {
+    void addRate(String from, String to, int rate) {
         rates.put(new Pair(from, to), rate);
     }
 
